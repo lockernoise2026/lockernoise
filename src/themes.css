@@ -112,3 +112,205 @@
 /* Light mode uses readable green text while retaining bright lime buttons. */
 :root[data-theme="light"] .eyebrow,:root[data-theme="light"] .hero .live-dot + span{color:var(--accent-ink)}
 :root[data-theme="light"] .vote-pill,:root[data-theme="light"] .news-label{color:var(--accent-ink)}
+
+/* Activity bell and friend-request center; consistent in all three themes. */
+.notify-wrap{position:relative;flex-shrink:0}
+.notification-bell{position:relative;display:grid;place-items:center;width:39px;height:39px;background:var(--surface-2);border:1px solid var(--border);border-radius:11px;color:var(--text)}
+.notification-bell:hover{border-color:var(--accent-ink);color:var(--accent-ink)}
+.notification-count{position:absolute;right:-8px;top:-8px;min-width:20px;height:20px;padding:1px 4px;border-radius:12px;background:#f04455;color:white;border:2px solid var(--header);font-size:10px;font-weight:900;display:grid;place-items:center;line-height:1}
+.notification-panel{position:absolute;z-index:60;right:-80px;top:calc(100% + 15px);width:min(400px,calc(100vw - 20px));max-height:min(570px,80vh);background:var(--surface);border:1px solid var(--border);border-radius:16px;box-shadow:0 18px 65px rgba(0,0,0,.36);color:var(--text);overflow:hidden;text-align:left}
+.notification-header{display:flex;justify-content:space-between;align-items:center;padding:17px 17px 13px;border-bottom:1px solid var(--border)}
+.notification-header strong{font:900 19px Outfit,system-ui,sans-serif;display:block}.notification-header small{display:block;color:var(--muted);font-size:11px;margin-top:3px}
+.notification-close{border:0;background:var(--surface-2);border-radius:8px;color:var(--text);padding:6px;display:grid;place-items:center}
+.notification-toolbar{display:flex;justify-content:space-between;align-items:center;gap:10px;padding:11px 16px;background:var(--surface-2);font-size:11px;color:var(--muted)}
+.notification-toolbar button{border:0;background:transparent;color:var(--accent-ink);font-weight:800;font-size:11px;padding:4px}.notification-toolbar button:disabled{opacity:.45}
+.notification-scroll{max-height:430px;overflow:auto;overscroll-behavior:contain}.notification-entry{display:flex;gap:12px;padding:14px 16px;border-top:1px solid var(--border);align-items:flex-start}.notification-entry.unread{background:var(--accent-bg)}
+.notification-entry p{margin:0 0 4px;font-size:12px;line-height:1.45}.notification-body{flex:1;min-width:0}.notification-body small{font-size:11px;color:var(--muted)}
+.notification-actions{display:flex;gap:8px;margin-top:10px}.notification-actions button{border:1px solid var(--border);background:var(--surface-2);color:var(--text);border-radius:8px;display:flex;align-items:center;gap:5px;padding:7px 11px;font-size:11px;font-weight:800}
+.notification-actions button.notification-primary{background:var(--accent);border-color:var(--accent);color:var(--button-text)}
+.notification-empty{display:flex;flex-direction:column;align-items:center;gap:11px;padding:38px 24px;text-align:center;color:var(--muted)}.notification-empty b{color:var(--text)}.notification-empty p{font-size:12px;line-height:1.55;margin:0}
+.nav-item .count-dot{margin-left:auto;min-width:21px;text-align:center;background:var(--accent);color:var(--button-text);border-radius:20px;padding:3px 6px;font-size:10px;font-weight:900}
+@media(max-width:700px){.topbar-content{gap:10px}.top-actions{gap:6px}.notification-panel{position:fixed;right:10px;top:67px;max-height:calc(100dvh - 90px)}.notification-bell{width:35px;height:35px}}
+
+/* Profile photos, logo choices and cross-device unread message badges */
+.avatar-person{display:inline-flex;align-items:center;justify-content:center;flex-shrink:0;overflow:hidden;border-radius:50%;background:var(--panel,#142b8c);border:1px solid var(--border,#536fd0);color:var(--lime,#d7ff1f);font-weight:850}
+.avatar-photo{display:block;width:100%;height:100%;object-fit:cover;border-radius:50%}
+.avatar-selected-team .team-logo,.avatar-selected-team .logo-fallback{display:block;object-fit:contain;max-width:90%;max-height:90%;border-radius:50%}
+.avatar-preferences{display:flex;align-items:center;gap:18px;padding:14px;border:1px solid var(--border,#5773c9);border-radius:12px;margin:12px 0;flex-wrap:wrap}
+.avatar-preference-options{display:flex;flex-direction:column;gap:10px}
+.avatar-option{display:flex;gap:9px;align-items:center;color:var(--text,#fff);font-size:13px;cursor:pointer}
+.avatar-option input{accent-color:var(--lime,#d7ff1f)}
+.avatar-team-options{display:grid;grid-template-columns:repeat(auto-fill,minmax(135px,1fr));gap:8px;max-height:225px;overflow-y:auto;margin-bottom:12px}
+.avatar-team-choice{display:flex;align-items:center;gap:7px;padding:9px;border:1px solid var(--border,#5773c9);border-radius:10px;background:var(--panel,#112a88);color:var(--text,#fff);font-size:11px;text-align:left;cursor:pointer}
+.avatar-team-choice.chosen{outline:2px solid var(--lime,#d7ff1f)}
+.avatar-team-choice span{flex:1}
+.avatar-upload-box{border:1px dashed var(--border,#5773c9);padding:16px;border-radius:12px;display:flex;align-items:flex-start;gap:9px;flex-direction:column;margin-bottom:14px}
+.avatar-upload-box small{color:var(--muted,#c9d4f4);font-size:11px}
+.message-unread-badge{display:inline-flex;min-width:20px;height:20px;padding:0 5px;align-items:center;justify-content:center;border-radius:11px;background:#ea4053;color:#fff;font-weight:800;font-size:11px;margin-left:auto;flex-shrink:0}
+.message-friend-label{overflow:hidden;text-overflow:ellipsis;white-space:nowrap;min-width:0}
+.mobile-chat-action{position:relative}.mobile-chat-badge{position:absolute;top:0;right:0;min-width:17px;height:17px;font-size:10px;padding:0 3px;line-height:17px}
+
+
+/* LockerNoise navbar and notifications UI hotfix — October 2026 */
+/* Deliberately scoped to presentation. No authentication/data changes. */
+:root[data-theme] .topbar {
+  position: sticky;
+  z-index: 500;
+  overflow: visible;
+}
+:root[data-theme] .topbar-content,
+:root[data-theme] .top-actions {
+  overflow: visible;
+}
+:root[data-theme] .brand {
+  display: inline-flex;
+  align-items: center;
+  flex: 0 0 auto;
+  gap: 7px;
+  min-width: 0;
+  max-width: min(270px, 32vw);
+  padding: 0;
+}
+:root[data-theme] .brand img.brand-lockup {
+  display: block !important;
+  width: 210px !important;
+  height: 44px !important;
+  max-width: min(210px, 29vw) !important;
+  max-height: 44px !important;
+  object-fit: contain !important;
+  object-position: left center;
+  flex: 0 0 auto;
+  border-radius: 0;
+}
+:root[data-theme] .brand .beta {
+  position: static;
+  flex: 0 0 auto;
+  margin: 0;
+  align-self: center;
+  vertical-align: middle;
+}
+/* Make sure the notification dropdown cannot inherit transparent styles. */
+:root[data-theme] .notify-wrap {
+  position: relative;
+  isolation: isolate;
+  flex: 0 0 auto;
+  z-index: 600;
+}
+:root[data-theme] .notification-panel {
+  position: absolute !important;
+  z-index: 700 !important;
+  top: calc(100% + 12px) !important;
+  right: 0 !important;
+  left: auto !important;
+  width: min(400px, calc(100vw - 28px)) !important;
+  max-width: calc(100vw - 28px) !important;
+  max-height: min(560px, calc(100dvh - 95px));
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+  background: var(--surface, #142b8f) !important;
+  background-color: var(--surface, #142b8f) !important;
+  color: var(--text, #fff) !important;
+  border: 1px solid var(--border, #4962b9) !important;
+  border-radius: 14px;
+  box-shadow: 0 20px 65px rgba(0, 0, 0, .55) !important;
+  opacity: 1 !important;
+  backdrop-filter: none;
+  box-sizing: border-box;
+}
+:root[data-theme] .notification-panel *,
+:root[data-theme] .notification-panel *::before,
+:root[data-theme] .notification-panel *::after { box-sizing: border-box; }
+:root[data-theme] .notification-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  flex-shrink: 0;
+  padding: 16px;
+  background: var(--surface, #142b8f) !important;
+  color: var(--text, #fff) !important;
+  border-bottom: 1px solid var(--border, #4962b9);
+}
+:root[data-theme] .notification-header strong { color: var(--text, #fff); }
+:root[data-theme] .notification-header small,
+:root[data-theme] .notification-toolbar { color: var(--muted, #c0cce6); }
+:root[data-theme] .notification-toolbar {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  background: var(--surface-2, #233b8f) !important;
+  padding: 11px 16px;
+  border-bottom: 1px solid var(--border, #4962b9);
+}
+:root[data-theme] .notification-toolbar button { color: var(--accent-ink, #d7ff1f); }
+:root[data-theme] .notification-scroll {
+  flex: 1 1 auto;
+  min-height: 0;
+  max-height: 430px;
+  overflow-y: auto;
+  overscroll-behavior: contain;
+  background: var(--surface, #142b8f) !important;
+}
+:root[data-theme] .notification-entry {
+  display: flex;
+  align-items: flex-start;
+  gap: 11px;
+  padding: 13px 16px;
+  background: var(--surface, #142b8f) !important;
+  border-top: 1px solid var(--border, #4962b9);
+  color: var(--text, #fff);
+}
+:root[data-theme] .notification-entry.unread {
+  background: var(--accent-bg, #243a98) !important;
+}
+:root[data-theme] .notification-body { min-width: 0; flex: 1; }
+:root[data-theme] .notification-entry p,
+:root[data-theme] .notification-entry strong { color: var(--text, #fff) !important; }
+:root[data-theme] .notification-body small { color: var(--muted, #c0cce6); }
+:root[data-theme] .notification-actions { display: flex; flex-wrap: wrap; gap: 8px; }
+:root[data-theme] .notification-actions button {
+  background: var(--surface-2, #233b8f) !important;
+  color: var(--text, #fff) !important;
+  border: 1px solid var(--border, #4962b9) !important;
+  border-radius: 8px;
+  padding: 8px 11px;
+  font-size: 12px;
+  font-weight: 800;
+}
+:root[data-theme] .notification-actions button.notification-primary {
+  background: var(--accent, #d7ff1f) !important;
+  color: var(--button-text, #12224c) !important;
+  border-color: var(--accent, #d7ff1f) !important;
+}
+:root[data-theme] .notification-empty {
+  background: var(--surface, #142b8f) !important;
+  color: var(--muted, #c0cce6) !important;
+}
+@media (max-width: 750px) {
+  :root[data-theme] .brand { max-width: min(188px, 51vw); }
+  :root[data-theme] .brand img.brand-lockup {
+    width: 155px !important;
+    height: 36px !important;
+    max-width: min(155px, 42vw) !important;
+    max-height: 36px !important;
+  }
+  :root[data-theme] .notification-panel {
+    position: fixed !important;
+    top: 69px !important;
+    right: 12px !important;
+    left: auto !important;
+    width: min(390px, calc(100vw - 24px)) !important;
+    max-height: calc(100dvh - 92px) !important;
+  }
+}
+@media (max-width: 410px) {
+  :root[data-theme] .brand img.brand-lockup {
+    width: 127px !important;
+    max-width: 35vw !important;
+  }
+  :root[data-theme] .brand .beta { display: none; }
+}
