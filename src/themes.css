@@ -411,3 +411,48 @@
   .topbar .topbar-content,
   :root[data-theme] .topbar .topbar-content { padding-inline: 7px; gap: 5px; }
 }
+/* LockerNoise: mobile registration/onboarding logo — targeted fix.
+   Append to the END of src/themes.css, after previous navbar rules.
+   Does not affect the LN animated splash or desktop navbar. */
+.auth-screen,
+.auth-card,
+.onboard-card {
+  min-width: 0;
+  max-width: 100%;
+}
+.auth-card .auth-logo,
+.onboard-card .auth-logo {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 8px;
+  width: 100%;
+  min-width: 0;
+  max-width: 100%;
+}
+.auth-card .auth-logo > img.auth-brand-lockup,
+.onboard-card .auth-logo > img.auth-brand-lockup {
+  display: block !important;
+  width: min(270px, 100%) !important;
+  min-width: 0 !important;
+  max-width: 100% !important;
+  height: auto !important;
+  max-height: 70px !important;
+  object-fit: contain !important;
+  object-position: left center !important;
+  flex: 0 1 auto !important;
+}
+@media screen and (max-width: 600px) {
+  .auth-card .auth-logo > img.auth-brand-lockup,
+  .onboard-card .auth-logo > img.auth-brand-lockup {
+    width: min(225px, 100%) !important;
+    max-height: 52px !important;
+  }
+}
+@media screen and (max-width: 360px) {
+  .auth-card .auth-logo > img.auth-brand-lockup,
+  .onboard-card .auth-logo > img.auth-brand-lockup {
+    width: min(200px, 100%) !important;
+    max-height: 44px !important;
+  }
+}
