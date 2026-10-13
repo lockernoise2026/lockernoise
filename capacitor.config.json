@@ -1,0 +1,13 @@
+{
+  "appId": "net.lockernoise.app",
+  "appName": "LockerNoise",
+  "webDir": "dist",
+  "server": {
+    "androidScheme": "https"
+  },
+  "plugins": {
+    "SplashScreen": {
+      "launchShowDuration": 0
+    }
+  }
+}
