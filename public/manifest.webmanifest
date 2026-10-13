@@ -1,0 +1,31 @@
+{
+  "name": "LockerNoise",
+  "short_name": "LockerNoise",
+  "description": "A social network for football fans.",
+  "id": "/",
+  "start_url": "/",
+  "scope": "/",
+  "display": "standalone",
+  "background_color": "#1029C9",
+  "theme_color": "#1029C9",
+  "icons": [
+    {
+      "src": "/icons/lockernoise-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "/icons/lockernoise-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "/icons/lockernoise-maskable-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "maskable"
+    }
+  ]
+}

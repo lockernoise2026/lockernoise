@@ -11,7 +11,7 @@ test('required onboarding columns and consent-based social messaging defined', (
  assert.match(sql,/revoke select on public\.profiles, public\.posts, public\.votes, public\.comments from anon/);
 });
 test('brand and Android preparation files present',()=>{
- const app=read('src/App.jsx'); assert.match(app,/Locker<span className="brand-accent">Noise/);
+ const app=read('src/App.jsx'); assert.match(app,/className="brand-lockup"/);
  assert.match(app,/function MessageCenter/);
  assert.match(app,/function blitzFriend/);
  assert.match(app,/view==='messages'/);

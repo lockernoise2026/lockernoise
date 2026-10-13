@@ -1,0 +1,13 @@
+import test from 'node:test';
+import assert from 'node:assert/strict';
+import {readFileSync} from 'node:fs';
+const root=new URL('../',import.meta.url);
+const read=x=>readFileSync(new URL(x,root),'utf8');
+const app=read('src/App.jsx');const css=read('src/themes.css');const sql=read('supabase/04_unified_social_media_and_notifications.sql');
+test('does not request secured posts before authentication',()=>assert.match(app,/if\(!supabase\|\|!session\?\.user\?\.id\)\{setPosts\(\[\]\)/));
+test('mobile navigation has tap-outside dismissal',()=>{assert.match(app,/sidebar-backdrop/);assert.match(css,/\.sidebar-backdrop\{/);});
+test('full editable profile page accessible in main menu',()=>{assert.match(app,/My profile<\/MenuIcon>/);assert.match(app,/view==='profile'/);assert.match(app,/bio:draftBio/);});
+test('post comments have inline rendering and writing',()=>{assert.match(app,/inline-comments/);assert.match(app,/addInlineComment/);});
+test('multiple photos and 5-minute video input validation',()=>{assert.match(app,/newPhotos\.length\+files\.length>5/);assert.match(app,/duration>300/);assert.match(app,/50\*1024\*1024/);assert.match(sql,/post_media/);assert.match(sql,/post-videos/);});
+test('blitz read-state persists in Supabase',()=>{assert.match(sql,/blitzes ADD COLUMN IF NOT EXISTS read_at/);assert.match(app,/\.from\('blitzes'\)\.update\(\{read_at:/);});
+test('home displays more news and load more',()=>{assert.match(app,/setNewsLimit\(x=>x\+12\)/);assert.match(app,/const \[newsLimit,setNewsLimit\]=useState\(12\)/);});

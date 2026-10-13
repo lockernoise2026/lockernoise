@@ -456,3 +456,59 @@
     max-height: 44px !important;
   }
 }
+
+/* LockerNoise consolidated UX: mobile drawer, profile, news and media posts */
+.sidebar-backdrop{display:none}
+.profile-page{display:flex;flex-direction:column;gap:22px}
+.profile-cover{display:flex;gap:22px;align-items:center;flex-wrap:wrap;padding:23px;border:1px solid var(--border);background:var(--surface);color:var(--text);border-radius:18px}
+.profile-cover>div{flex:1;min-width:190px}.profile-cover h2{font-size:25px;margin:0 0 4px}.profile-cover p{margin:5px 0;color:var(--muted);line-height:1.5}
+.profile-teams{display:flex;flex-wrap:wrap;gap:10px;margin-top:12px}.profile-teams .team-name{font-size:12px}
+.inline-comments{border-top:1px solid var(--border);margin-top:12px;padding-top:12px;display:grid;gap:12px}
+.inline-comment{display:flex;gap:10px;align-items:flex-start}.inline-comment>div{flex:1;min-width:0;font-size:12px}.inline-comment p{margin:5px 0 0;line-height:1.5;overflow-wrap:anywhere}.inline-comment strong{color:var(--text)}
+.inline-more{border:0;padding:7px 0;background:transparent;color:var(--accent-ink);font-weight:750;text-align:left}
+.inline-comment-form{display:flex;gap:8px;min-width:0}.inline-comment-form input{min-width:0;flex:1;border-radius:10px;border:1px solid var(--border);padding:10px 12px;background:var(--surface-2);color:var(--text)}.inline-comment-form button,.load-news{border:1px solid var(--border);border-radius:10px;background:var(--accent);color:var(--button-text);font-weight:800;padding:10px 14px;display:inline-flex;align-items:center;gap:7px;justify-content:center}
+.load-news{width:100%;margin-top:15px;min-height:44px}
+.post-gallery{display:grid;gap:5px;margin:14px 0;border-radius:15px;overflow:hidden;max-height:640px;grid-template-columns:repeat(2,minmax(0,1fr))}.post-gallery.gallery-count-1{grid-template-columns:1fr}.post-gallery.gallery-count-3 .post-gallery-photo:first-child{grid-row:span 2}
+.post-gallery-photo{background:var(--surface-2);border:0;padding:0;min-width:0;min-height:120px;overflow:hidden}.post-gallery-photo img{display:block;width:100%;height:100%;max-height:470px;object-fit:cover}.post-gallery.gallery-count-1 img{object-fit:contain;max-height:500px}.post-video{display:block;width:100%;max-height:520px;background:#000;border-radius:13px;margin:14px 0}
+.media-lightbox{position:fixed;inset:0;background:rgba(0,0,0,.93);z-index:200;display:grid;place-items:center;padding:18px}.media-lightbox img{max-width:100%;max-height:90dvh;object-fit:contain}.media-lightbox button{position:absolute;top:18px;right:20px;background:#222;color:#fff;border:0;border-radius:10px;padding:9px}
+.compose-gallery{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:7px}.compose-thumb{position:relative;min-width:0;border-radius:10px;overflow:hidden}.compose-thumb img{width:100%;height:95px;object-fit:cover}.compose-thumb button{position:absolute;top:4px;right:4px;border:0;border-radius:5px;background:#172742;color:#fff;padding:3px}.compose-thumb .move-photo{right:auto;left:4px}
+.compose-video video{display:block;width:100%;max-height:240px}.compose-video button{display:inline-flex;gap:5px;align-items:center;margin:8px 10px 5px 0;padding:7px 10px;border-radius:8px;background:var(--surface-2);color:var(--text);border:1px solid var(--border)}.compose-video small{color:var(--muted)}.compose-bottom{flex-wrap:wrap;gap:10px}
+@media(max-width:800px){.sidebar-backdrop{display:block;position:fixed;inset:57px 0 0;z-index:29;border:0;background:rgba(0,0,0,.54);width:100vw;height:calc(100dvh - 57px);touch-action:manipulation}.sidebar.shown{position:fixed;z-index:30;left:0;top:57px;bottom:0;overflow-y:auto;overscroll-behavior:contain;max-height:calc(100dvh - 57px)}.profile-cover{padding:16px}.profile-cover h2{font-size:21px}.compose-gallery{grid-template-columns:repeat(3,minmax(0,1fr))}}
+@media(max-width:450px){.inline-comment-form{flex-wrap:wrap}.inline-comment-form button{margin-left:auto}.compose-thumb img{height:78px}}
+
+
+/* LockerNoise full-post viewer: user-owned and friends' photos open into a dedicated
+   image+conversation workspace on desktop, and an accessible vertical view on phones. */
+.post-gallery-photo{cursor:zoom-in}
+.post-gallery-photo:focus-visible,.post-action:focus-visible{outline:3px solid var(--accent);outline-offset:3px}
+.post-detail-backdrop{position:fixed;inset:0;z-index:2000;background:rgba(1,5,14,.94);padding:16px;display:flex;align-items:center;justify-content:center}
+.post-detail-dialog{position:relative;display:grid;grid-template-columns:minmax(0,1.75fr) minmax(320px,.85fr);width:min(1460px,100%);height:min(92dvh,900px);max-height:92dvh;overflow:hidden;border:1px solid var(--border);border-radius:18px;background:var(--surface);box-shadow:0 30px 80px rgba(0,0,0,.6);color:var(--text)}
+.post-detail-close{position:absolute;z-index:5;top:12px;right:12px;width:38px;height:38px;border-radius:50%;border:1px solid var(--border);display:grid;place-items:center;color:var(--text);background:var(--surface-2);cursor:pointer}
+.post-detail-media{position:relative;display:flex;align-items:center;justify-content:center;min-width:0;min-height:0;background:#050b18;overflow:hidden}
+.post-detail-media img,.post-detail-media video{display:block;max-width:100%;max-height:100%;width:auto;height:auto;object-fit:contain}
+.post-detail-media video{width:100%;max-height:100%}
+.post-detail-no-photo{display:grid;justify-items:center;align-content:center;gap:18px;color:#d7ff1f;min-height:280px}
+.post-detail-prev,.post-detail-next{position:absolute;top:50%;transform:translateY(-50%);border:1px solid rgba(255,255,255,.24);background:rgba(0,0,0,.62);color:white;border-radius:50%;width:44px;height:44px;display:grid;place-items:center;cursor:pointer}
+.post-detail-prev{left:16px}.post-detail-next{right:16px}
+.post-detail-counter{position:absolute;bottom:15px;left:50%;transform:translateX(-50%);background:rgba(0,0,0,.66);color:white;padding:7px 14px;border-radius:30px;font-weight:700;font-size:12px}
+.post-detail-info{display:flex;flex-direction:column;min-width:0;min-height:0;padding:22px 18px 16px;gap:16px;overflow-y:auto}
+.post-detail-author{display:flex;align-items:center;gap:12px;padding-right:38px}.post-detail-author strong{font-size:15px}.post-detail-sub{display:flex;align-items:center;gap:5px;margin-top:5px;color:var(--muted);font-size:12px}
+.post-detail-body{margin:0;font-size:14px;line-height:1.7;overflow-wrap:anywhere;white-space:pre-wrap}
+.post-detail-controls{display:flex;flex-wrap:wrap;align-items:center;gap:12px;padding:12px 0;border-top:1px solid var(--border);border-bottom:1px solid var(--border)}
+.post-detail-comment-count{display:flex;align-items:center;gap:5px;color:var(--muted);font-size:12px}
+.post-detail-comments{display:flex;flex-direction:column;gap:16px;overflow-y:auto;flex:1;min-height:90px;padding:3px 0 8px}
+.post-detail-empty{color:var(--muted);font-size:13px;line-height:1.5}
+.post-detail-reply{display:flex;gap:8px;padding-top:12px;border-top:1px solid var(--border)}
+.post-detail-reply input{min-width:0;flex:1;padding:12px;background:var(--field);color:var(--text);border:1px solid var(--border);border-radius:10px}
+.post-detail-reply button{display:flex;align-items:center;gap:6px;padding:9px 12px;border-radius:10px;border:0;background:var(--accent);color:var(--button-text);font-weight:800;cursor:pointer}
+.post-detail-reply button:disabled{opacity:.5;cursor:not-allowed}
+@media(max-width:780px){
+  .post-detail-backdrop{padding:0;align-items:stretch}
+  .post-detail-dialog{border-radius:0;width:100%;height:100dvh;max-height:100dvh;display:flex;flex-direction:column;overflow-y:auto;border:0}
+  .post-detail-media{min-height:210px;height:46dvh;max-height:52dvh;flex-shrink:0}
+  .post-detail-media img,.post-detail-media video{max-height:100%;max-width:100%}
+  .post-detail-info{overflow:visible;min-height:0;padding:17px 15px max(20px,env(safe-area-inset-bottom));flex:1}
+  .post-detail-comments{overflow:visible;flex:none;min-height:100px}
+  .post-detail-close{top:max(12px,env(safe-area-inset-top));right:12px}
+  .post-detail-reply{position:sticky;bottom:0;background:var(--surface);padding:12px 0 max(8px,env(safe-area-inset-bottom))}
+}
