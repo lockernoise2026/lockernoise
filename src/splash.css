@@ -1,0 +1,26 @@
+/* Official LockerNoise LN shield launch — web and Capacitor Android. */
+.ln-launch{--ln-blue:#0923ba;--ln-lime:#d7ff1f;position:fixed;inset:0;z-index:99999;min-height:100dvh;display:grid;place-items:center;overflow:hidden;padding:24px;background:radial-gradient(ellipse at 48% 37%,#2046fa 0%,#102bd9 40%,#07177e 83%,#071259 100%)!important;color:white!important;isolation:isolate;font-family:Inter,system-ui,-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif}
+.ln-launch:before{content:"";position:absolute;inset:-15%;background:conic-gradient(from 40deg,transparent 0 35%,#adff1530 48%,transparent 59% 100%);filter:blur(80px);opacity:.24;pointer-events:none}
+.ln-launch-center{width:min(100%,520px);display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;position:relative;transform:translateY(-2vh)}
+.ln-launch-halo{position:absolute;width:min(82vw,650px);aspect-ratio:1;border:1px solid #d7ff1f14;border-radius:50%;box-shadow:0 0 0 75px #d7ff1f05,0 0 0 165px #d7ff1f04;pointer-events:none;opacity:.75}
+.ln-launch-stage{position:relative;width:260px;height:260px;display:grid;place-items:center;isolation:isolate}
+.ln-launch-spin{width:224px;height:224px;display:grid;place-items:center;animation:ln-shield-spin 2.6s cubic-bezier(.25,.8,.3,1) both;will-change:transform,opacity}
+.ln-launch-emblem{width:100%;height:100%;object-fit:contain;filter:drop-shadow(0 12px 19px #00125c90)}
+.ln-launch-ring{position:absolute;border:5px solid var(--ln-lime);border-radius:50%;width:62px;height:62px;opacity:0;animation:ln-shockwave .8s 1.02s ease-out both;pointer-events:none;box-shadow:0 0 24px #d7ff1f5c}
+.ln-launch-ring-b{animation-delay:1.12s;border-width:2px}
+.ln-launch-flash{position:absolute;width:70px;height:70px;border-radius:50%;background:radial-gradient(circle,#fff 0%,#dbff3b 27%,#aaff0052 56%,transparent 75%);mix-blend-mode:screen;opacity:0;animation:ln-burst-flash .55s 1.04s ease-out both;pointer-events:none}
+.ln-launch-spark{position:absolute;top:50%;left:50%;width:7px;height:20px;background:linear-gradient(#fff,var(--ln-lime));border-radius:20px;box-shadow:0 0 16px #d7ff1f88;opacity:0;transform:translate(-50%,-50%) rotate(var(--direction));animation:ln-particle .82s calc(1.04s + var(--delay)) cubic-bezier(.18,.7,.25,1) both;pointer-events:none}
+.ln-launch-title{display:block;width:min(88vw,420px);height:auto;object-fit:contain;margin-top:4px;opacity:0;animation:ln-reveal .7s 1.38s both}
+.ln-launch-tagline{color:#dbe3ff!important;letter-spacing:.30em;font-size:clamp(9px,2.2vw,12px);font-weight:750;margin:14px 0 0;opacity:0;animation:ln-reveal .65s 1.7s both}
+.ln-launch-loading{height:3px;width:146px;margin-top:33px;border-radius:10px;background:#ffffff24;overflow:hidden;opacity:0;animation:ln-reveal .4s 1.95s both}
+.ln-launch-loading-line{height:100%;width:100%;display:block;background:var(--ln-lime);transform-origin:left;animation:ln-progress 2.45s ease-in-out both}
+.ln-launch-wait{font-size:12px;margin-top:15px!important;color:#e5ebff!important;animation:ln-reveal .25s ease-out both}
+.ln-launch-accessible{position:absolute;width:1px;height:1px;clip:rect(0,0,0,0);white-space:nowrap;overflow:hidden}
+@keyframes ln-shield-spin{0%{opacity:0;transform:scale(.48) rotate(-30deg)}12%{opacity:1;transform:scale(.86) rotate(0deg)}36%{opacity:1;transform:scale(1.02) rotate(720deg)}41%{opacity:1;transform:scale(1.10) rotate(720deg)}49%{opacity:0;transform:scale(1.48) rotate(745deg)}100%{opacity:0;transform:scale(1.48) rotate(745deg)}}
+@keyframes ln-shockwave{0%{opacity:.85;transform:scale(.5)}100%{opacity:0;transform:scale(6.3)}}
+@keyframes ln-burst-flash{0%{opacity:0;transform:scale(.2)}25%{opacity:.88;transform:scale(2.2)}100%{opacity:0;transform:scale(4.1)}}
+@keyframes ln-particle{0%{opacity:0;transform:translate(-50%,-50%) rotate(var(--direction)) translateY(0) scale(.7)}18%{opacity:1}100%{opacity:0;transform:translate(-50%,-50%) rotate(var(--direction)) translateY(calc(-1 * var(--distance))) scale(.1)}}
+@keyframes ln-reveal{from{opacity:0;transform:translateY(12px) scale(.96)}to{opacity:1;transform:translateY(0) scale(1)}}
+@keyframes ln-progress{0%{transform:scaleX(0)}100%{transform:scaleX(1)}}
+@media(max-width:450px){.ln-launch-stage{width:214px;height:214px}.ln-launch-spin{width:175px;height:175px}.ln-launch-spark{height:13px;width:5px}.ln-launch-title{margin-top:2px}.ln-launch-halo{width:80vw}.ln-launch-tagline{letter-spacing:.17em}}
+@media(prefers-reduced-motion:reduce){.ln-launch-spin,.ln-launch-title,.ln-launch-tagline,.ln-launch-loading,.ln-launch-loading-line,.ln-launch-wait{animation:none!important;opacity:1!important;transform:none!important}.ln-launch-spark,.ln-launch-ring,.ln-launch-flash{display:none!important}}
