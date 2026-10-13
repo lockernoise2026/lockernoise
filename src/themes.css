@@ -1,0 +1,114 @@
+/* LockerNoise 3-theme design system — colors only, never changes privacy/data. */
+:root[data-theme="electric"],:root:not([data-theme]){
+ --canvas:#071760;--header:#0b217e;--surface:#10277e;--surface-2:#142e88;
+ --raised:#1a369f;--field:#162e90;--text:#f5f7ff;--muted:#becce1;
+ --subtle:#a3b4cf;--border:#3957a2;--accent:#d7ff1f;--accent-ink:#d7ff1f;
+ --accent-bg:#233a9c;--button-text:#142542;--hero-1:#102b9c;--hero-2:#284ad0;
+ --selected-text:#d7ff1f;--pill:#243da2;--overlay:rgba(3,8,27,.78);
+}
+:root[data-theme="dark"]{
+ --canvas:#0b1019;--header:#111823;--surface:#19212e;--surface-2:#1e2935;
+ --raised:#253241;--field:#182431;--text:#f3f6fa;--muted:#c0ccd9;
+ --subtle:#9eacbc;--border:#394857;--accent:#d7ff1f;--accent-ink:#d7ff1f;
+ --accent-bg:#293b24;--button-text:#16220e;--hero-1:#19242f;--hero-2:#30432b;
+ --selected-text:#d7ff1f;--pill:#283a2a;--overlay:rgba(0,0,0,.8);
+ color-scheme:dark;
+}
+:root[data-theme="light"]{
+ --canvas:#f3f6fa;--header:#ffffff;--surface:#ffffff;--surface-2:#f8fafc;
+ --raised:#edf2f7;--field:#f6f9fc;--text:#18263a;--muted:#506178;
+ --subtle:#5e6d80;--border:#d9e3ed;--accent:#d7ff1f;--accent-ink:#4d7000;
+ --accent-bg:#eff8ce;--button-text:#1e2c0b;--hero-1:#edf5d8;--hero-2:#dff2a9;
+ --selected-text:#395a00;--pill:#e9f4c4;--overlay:rgba(15,23,42,.65);
+ color-scheme:light;
+}
+:root[data-theme]{color:var(--text);background:var(--canvas)}
+:root[data-theme] body{color:var(--text);background:var(--canvas)}
+:root[data-theme] .site-shell{background:var(--canvas);color:var(--text)}
+:root[data-theme] .topbar{background:var(--header);border-color:var(--border)}
+:root[data-theme] .brand{color:var(--text)}
+:root[data-theme] .brand-accent{color:var(--accent-ink)}
+:root[data-theme] .beta,:root[data-theme] .spotlight-ball{background:var(--accent-bg);color:var(--accent-ink)}
+:root[data-theme] .top-search,:root[data-theme] .compose-placeholder,
+:root[data-theme] .text-field,:root[data-theme] .picker-trigger,:root[data-theme] .picker-menu input,
+:root[data-theme] .post-textarea,:root[data-theme] .comment-entry textarea,
+:root[data-theme] .join-input{background:var(--field);color:var(--text);border-color:var(--border)}
+:root[data-theme] .top-search input{color:var(--text)}
+:root[data-theme] input::placeholder,:root[data-theme] textarea::placeholder{color:var(--subtle)}
+:root[data-theme] .nav-group,:root[data-theme] .post-footer,:root[data-theme] .hot-team,
+:root[data-theme] .modal-head,:root[data-theme] .comment-entry{border-color:var(--border)}
+:root[data-theme] .nav-item,:root[data-theme] .post-action,:root[data-theme] .mobile-footer button,
+:root[data-theme] .post-sub,:root[data-theme] .right-card>p,:root[data-theme] .right-card-head p,
+:root[data-theme] .nav-label,:root[data-theme] .muted,:root[data-theme] .section-heading p,
+:root[data-theme] .post-more,:root[data-theme] .team-grid-tools span,:root[data-theme] .field-hint,
+:root[data-theme] .theme-caption{color:var(--muted)}
+:root[data-theme] .nav-item:hover,:root[data-theme] .nav-item.active,
+:root[data-theme] .sidebar-team:hover,:root[data-theme] .hot-team:hover,
+:root[data-theme] .picker-row:hover,:root[data-theme] .explore-tile:hover{background:var(--accent-bg);color:var(--selected-text)}
+:root[data-theme] .nav-item.active,:root[data-theme] .manage-teams,
+:root[data-theme] .outline-btn,:root[data-theme] .compose-card>button,
+:root[data-theme] .post-action:hover,:root[data-theme] .side-title span,
+:root[data-theme] .guidelines button,:root[data-theme] .upload-action,
+:root[data-theme] .news-read-link,:root[data-theme] .feed-explainer button,
+:root[data-theme] .inline-team,:root[data-theme] .team-pick-card.chosen .primary-pick{color:var(--accent-ink)}
+:root[data-theme] .hero{background:linear-gradient(125deg,var(--hero-1),var(--hero-2));border-color:var(--border)}
+:root[data-theme] .hero p{color:var(--muted)}
+:root[data-theme] .secondary-btn{color:var(--text);border-color:var(--border)}
+:root[data-theme] .secondary-btn:hover{background:var(--accent-bg)}
+:root[data-theme] .compose-card,:root[data-theme] .post,:root[data-theme] .right-card,
+:root[data-theme] .news-card,:root[data-theme] .no-posts,:root[data-theme] .person-row,
+:root[data-theme] .explore-tile,:root[data-theme] .modal,:root[data-theme] .auth-card,
+:root[data-theme] .onboard-card,:root[data-theme] .join-card{background:var(--surface);border-color:var(--border);color:var(--text)}
+:root[data-theme] .post-body,:root[data-theme] .news-headline,
+:root[data-theme] .field-label,:root[data-theme] .rule-list b,
+:root[data-theme] .auth-card h1,:root[data-theme] .onboard-card h1{color:var(--text)}
+:root[data-theme] .news-headline:hover,:root[data-theme] .post-sub .team-name,
+:root[data-theme] .post-action.share:hover{color:var(--accent-ink)}
+:root[data-theme] .news-icon,:root[data-theme] .news-label,:root[data-theme] .spotlight-ball,
+:root[data-theme] .feed-explainer,:root[data-theme] .vote-pill,
+:root[data-theme] .inline-team,:root[data-theme] .sort-control button.selected,
+:root[data-theme] .league-tabs button.selected,:root[data-theme] .steps span.active,
+:root[data-theme] .toast{background:var(--accent-bg);color:var(--selected-text);border-color:var(--border)}
+:root[data-theme] .news-kicker,:root[data-theme] .news-caption,
+:root[data-theme] .person-info>span,:root[data-theme] .person-teams .team-name,
+:root[data-theme] .auth-card p,:root[data-theme] .onboard-card p,
+:root[data-theme] .comment-item small{color:var(--muted)}
+:root[data-theme] .news-status,:root[data-theme] .sort-control,
+:root[data-theme] .league-tabs,:root[data-theme] .multi-team-picker,
+:root[data-theme] .discussion-origin,:root[data-theme] .picker-menu,
+:root[data-theme] .team-pick-card,:root[data-theme] .modal-content select,
+:root[data-theme] .friend-btn,:root[data-theme] .friend-btn.is-friend{background:var(--surface-2);color:var(--text);border-color:var(--border)}
+:root[data-theme] .team-pick-card.chosen{background:var(--accent-bg);border-color:var(--accent-ink)}
+:root[data-theme] .team-pick-toggle{color:var(--text)}
+:root[data-theme] .team-pick-toggle .pick-check{color:var(--accent-ink)}
+:root[data-theme] .sort-control button,:root[data-theme] .league-tabs button{color:var(--muted)}
+:root[data-theme] .sort-control button.selected,:root[data-theme] .league-tabs button.selected{color:var(--selected-text)}
+:root[data-theme] .mobile-footer,:root[data-theme] .sidebar.shown{background:var(--header);border-color:var(--border)}
+:root[data-theme] .auth-screen{background:var(--canvas);color:var(--text)}
+:root[data-theme] .auth-logo,:root[data-theme] .primary-pick.chosen,
+:root[data-theme] .steps span.active{color:var(--accent-ink)}
+:root[data-theme] .steps span{color:var(--muted);border-color:var(--border)}
+:root[data-theme] .modal-layer{background:var(--overlay)}
+:root[data-theme] .toast{color:var(--text)}
+:root[data-theme] .mobile-footer .mobile-post,:root[data-theme] .primary-btn,
+:root[data-theme] .new-post-small,:root[data-theme] .brand-ball{background:var(--accent);color:var(--button-text)}
+:root[data-theme] .vote-pill button{color:var(--selected-text)}
+:root[data-theme] .theme-choice.active{border-color:var(--accent-ink)}
+/* Switcher: keyboard accessible and usable in mobile header and profile settings. */
+.header-theme-control{display:flex;align-items:center;gap:5px;border:1px solid var(--border);color:var(--text);padding:6px 8px;border-radius:9px;background:var(--surface-2)}
+.header-theme-control select{border:0;background:transparent;color:var(--text);font-weight:800;font-size:12px;max-width:76px;cursor:pointer}
+.header-theme-control option{background:var(--surface);color:var(--text)}
+.theme-caption{font-size:12px;line-height:1.55;margin:0}
+.theme-choices{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:9px}
+.theme-choice{display:flex;flex-direction:column;align-items:start;gap:9px;min-width:0;position:relative;min-height:100px;background:var(--surface-2);border:2px solid var(--border);border-radius:12px;padding:10px;text-align:left;color:var(--text);font-size:11px;font-weight:800}
+.theme-choice.active{background:var(--accent-bg)}
+.theme-choice>svg{position:absolute;top:8px;right:7px;color:var(--accent-ink)}
+.theme-swatch{display:flex;align-items:end;gap:4px;width:100%;height:43px;border-radius:7px;padding:7px;border:1px solid var(--border)}
+.theme-swatch i{display:block;width:27%;height:15px;border-radius:4px}
+.auth-theme{margin-top:20px}
+.auth-theme>span{font-weight:800;font-size:12px;display:block;margin-bottom:9px}
+@media(max-width:470px){.header-theme-control{padding:4px 5px}.header-theme-control select{max-width:59px;font-size:11px}.theme-choices{gap:5px}.theme-choice{padding:7px;font-size:10px}}
+
+/* Light mode uses readable green text while retaining bright lime buttons. */
+:root[data-theme="light"] .eyebrow,:root[data-theme="light"] .hero .live-dot + span{color:var(--accent-ink)}
+:root[data-theme="light"] .vote-pill,:root[data-theme="light"] .news-label{color:var(--accent-ink)}
