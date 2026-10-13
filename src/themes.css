@@ -314,3 +314,100 @@
   }
   :root[data-theme] .brand .beta { display: none; }
 }
+/* LockerNoise mobile header — 2026-10-13
+   ADD to the END of the existing src/themes.css, below earlier header hotfixes.
+   CSS only: does not change the splash, authentication or notifications.
+*/
+@media screen and (max-width: 900px) {
+  html, body, #root, .site-shell {
+    max-width: 100%;
+  }
+  .topbar,
+  :root[data-theme] .topbar {
+    width: 100%;
+    max-width: 100%;
+  }
+  .topbar .topbar-content,
+  :root[data-theme] .topbar .topbar-content {
+    box-sizing: border-box;
+    width: 100%;
+    max-width: 100%;
+    min-width: 0;
+    padding-inline: 12px;
+    gap: 9px;
+  }
+  .topbar button.brand,
+  :root[data-theme] .topbar button.brand {
+    flex: 0 1 156px;
+    width: 156px;
+    max-width: min(156px, 38vw);
+    min-width: 0;
+    overflow: hidden;
+    align-items: center;
+    gap: 0;
+  }
+  .topbar button.brand > img.brand-lockup,
+  :root[data-theme] .topbar button.brand > img.brand-lockup {
+    display: block !important;
+    box-sizing: border-box;
+    flex: 0 1 auto;
+    width: 100% !important;
+    max-width: 156px !important;
+    height: 34px !important;
+    max-height: 34px !important;
+    object-fit: contain !important;
+    object-position: left center !important;
+    border-radius: 0;
+  }
+  .topbar .brand .beta,
+  :root[data-theme] .topbar .brand .beta { display: none !important; }
+  .topbar .top-search { flex: 1 1 100px; min-width: 0; }
+  .topbar .top-actions {
+    flex: 0 0 auto;
+    min-width: 0;
+    margin-left: auto;
+    gap: 5px;
+  }
+}
+@media screen and (max-width: 600px) {
+  .topbar .topbar-content,
+  :root[data-theme] .topbar .topbar-content {
+    height: 60px;
+    padding-inline: 9px;
+    gap: 7px;
+  }
+  .topbar button.brand,
+  :root[data-theme] .topbar button.brand {
+    flex-basis: 135px;
+    width: 135px;
+    max-width: min(135px, 38vw);
+  }
+  .topbar button.brand > img.brand-lockup,
+  :root[data-theme] .topbar button.brand > img.brand-lockup {
+    max-width: 135px !important;
+    height: 29px !important;
+    max-height: 29px !important;
+  }
+  /* The desktop search field belongs in the full-width view, not the phone navbar. */
+  .topbar .top-search { display: none !important; }
+  /* Keep alerts, appearance setting and menu tappable. */
+  .topbar .notification-bell { width: 35px; height: 35px; }
+  .topbar .notification-panel,
+  :root[data-theme] .topbar .notification-panel { top: 61px !important; }
+}
+@media screen and (max-width: 380px) {
+  .topbar button.brand,
+  :root[data-theme] .topbar button.brand {
+    flex-basis: 113px;
+    width: 113px;
+    max-width: min(113px, 36vw);
+  }
+  .topbar button.brand > img.brand-lockup,
+  :root[data-theme] .topbar button.brand > img.brand-lockup {
+    max-width: 113px !important;
+    height: 25px !important;
+    max-height: 25px !important;
+  }
+  .topbar .topbar-content,
+  :root[data-theme] .topbar .topbar-content { padding-inline: 7px; gap: 5px; }
+}
