@@ -9,8 +9,10 @@ const key=import.meta.env.VITE_SUPABASE_PUBLISHABLE_KEY;
 const connected=Boolean(url&&key);
 const supabase=connected?createClient(url,key):null;
 const storeKey='lockernoise-demo-v3';
-// Only enable licensed or legally approved official team assets for a public release.
-const useOfficialLogos=import.meta.env.VITE_LOGOS_LICENSED==='true';
+// Official team logos may only be used on the public site after brand-rights review.
+// The private-preview mode is for reviewing the user interface before launch, not an IP license.
+const teamLogoMode=import.meta.env.VITE_TEAM_LOGO_MODE || 'initials';
+const useOfficialLogos=teamLogoMode==='private-preview' || (teamLogoMode==='licensed' && import.meta.env.VITE_LOGOS_LICENSED==='true');
 const initialPosts=[
  {id:'demo-1',team_id:'TB',author_id:'demo',author:{display_name:'GridironGuru',handle:'gridironguru',favorite_nfl:'TB',favorite_cfb:'FLA'},body:'What is the biggest thing the Buccaneers need to improve this season? I’m looking at the offensive line. Let’s hear your takes. 🏈',created_at:new Date(Date.now()-1000*60*18).toISOString(),score:42,comments:7},
  {id:'demo-2',team_id:'OSU',author_id:'demo',author:{display_name:'SaturdaySzn',handle:'saturdayszn',favorite_cfb:'OSU',favorite_nfl:'DET'},body:'College football debate: Ohio State or Michigan — whose defense is more dangerous this year? Drop your reasoning, not just your pick.',created_at:new Date(Date.now()-1000*60*60*2).toISOString(),score:28,comments:12},
