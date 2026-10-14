@@ -23,3 +23,7 @@ export function splitTaggedText(text,taggedUsers){
  }
  return result;
 }
+
+// Show the recognizable profile name while retaining the account-linked mention target.
+// Never alter the text saved in posts: legacy @handles must still match their stored tags.
+export const visibleMentionName = person => '@' + (String(person?.display_name || '').trim() || person?.handle || 'fan');

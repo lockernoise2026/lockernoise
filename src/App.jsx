@@ -5,7 +5,7 @@ import {TEAMS,getTeam,MENTIONS,leagueName} from './teams';
 import {THEMES,THEME_STORAGE_KEY,validTheme,savedTheme} from './themes';
 import LaunchSplash from './LaunchSplash.jsx';
 import {youtubeId,extractYouTubeAttachment} from './youtube.js';
-import {friendTagOptions,insertFriendTag,mentionsInPost,splitTaggedText} from './friendTags.js';
+import {friendTagOptions,insertFriendTag,mentionsInPost,splitTaggedText,visibleMentionName} from './friendTags.js';
 import {FEED_SORT_KEY,validFeedSort,savedFeedSort} from './feedPreferences.js';
 import SupportCenter from './SupportCenter.jsx';
 import {isAcceptedFriendsPost,isNetworkPost} from './friendsFeed.js';
@@ -35,7 +35,7 @@ function TeamName({team,short=false,size=23,onClick,className=''}){const node=<>
 function RichTeamText({text,onTeam}){const tokens=useMemo(()=>{const out=[];let current=0;let index=0;const parts=MENTIONS.map(m=>({ ...m,pattern:new RegExp('(^|[^\\p{L}\\p{N}])('+m.name.replace(/[.*+?^${}()|[\]\\]/g,'\\$&')+')(?=$|[^\\p{L}\\p{N}])','giu')}));while(index<text.length){let best=null;for(const m of parts){m.pattern.lastIndex=index;const match=m.pattern.exec(text);if(match){const from=match.index+match[1].length;if(!best||from<best.from||(from===best.from&&m.name.length>best.m.name.length)){best={from,to:from+match[2].length,m,matched:match[2]};}}}if(!best){out.push(text.slice(index));break;}if(best.from>index)out.push(text.slice(index,best.from));out.push({team:best.m.team,matched:best.matched,key:current++});index=best.to;}return out;},[text]);return <span className="rich-team-text">{tokens.map((part,i)=>typeof part==='string'?<React.Fragment key={i}>{part}</React.Fragment>:<button key={'t'+i} type="button" className="inline-team" onClick={()=>onTeam(part.team.id)}><Logo team={part.team} size={19}/>{part.matched}</button>)}</span>}
 function TaggedPostText({text='',taggedUsers=[],onTeam,onProfile}){
  return <span>{splitTaggedText(text,taggedUsers).map((part,i)=>part.type==='mention'
-  ?<button key={i} type="button" className="friend-mention-link" onClick={()=>onProfile(part.person.id)} title={'View '+(part.person.display_name||part.person.handle)}>{part.value}</button>
+  ?<button key={i} type="button" className="friend-mention-link" onClick={()=>onProfile(part.person.id)} title={'View '+(part.person.display_name||part.person.handle)}>{visibleMentionName(part.person)}</button>
   :<RichTeamText key={i} text={part.value} onTeam={onTeam}/>)}</span>;
 }
 function FriendMentionSuggestions({text,friends,onChange}){
