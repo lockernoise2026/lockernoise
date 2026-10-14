@@ -24,3 +24,7 @@
 @keyframes ln-progress{0%{transform:scaleX(0)}100%{transform:scaleX(1)}}
 @media(max-width:450px){.ln-launch-stage{width:214px;height:214px}.ln-launch-spin{width:175px;height:175px}.ln-launch-spark{height:13px;width:5px}.ln-launch-title{margin-top:2px}.ln-launch-halo{width:80vw}.ln-launch-tagline{letter-spacing:.17em}}
 @media(prefers-reduced-motion:reduce){.ln-launch-spin,.ln-launch-title,.ln-launch-tagline,.ln-launch-loading,.ln-launch-loading-line,.ln-launch-wait{animation:none!important;opacity:1!important;transform:none!important}.ln-launch-spark,.ln-launch-ring,.ln-launch-flash{display:none!important}}
+
+/* When browser blocks autoplay, allow a real tap. Never prevent the app from opening. */
+.ln-launch-audio-toggle{position:relative;z-index:2;cursor:pointer;margin-top:12px;border:1px solid #d7ff1f99;border-radius:999px;padding:9px 15px;color:#fff;background:#0b229bb3;font-size:12px;font-weight:700}
+.ln-launch-audio-toggle:focus-visible{outline:3px solid #d7ff1f;outline-offset:3px}

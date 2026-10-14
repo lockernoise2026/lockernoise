@@ -1,0 +1,12 @@
+import test from 'node:test';
+import assert from 'node:assert/strict';
+import fs from 'node:fs';
+import {friendTagOptions,insertFriendTag,mentionsInPost,splitTaggedText} from '../src/friendTags.js';
+const friends=[{id:'f1',display_name:'Patriots Fan',handle:'patsfan'},{id:'f2',display_name:'Bucs Fan',handle:'bucsfan'}];
+test('Typing @ shows accepted friend suggestions',()=>{assert.equal(friendTagOptions('hey @pa',friends)[0].id,'f1');assert.equal(friendTagOptions('hello football',friends).length,0)});
+test('Selecting a friend replaces mention only and preserves original writing',()=>{assert.equal(insertFriendTag('Great @pa','patsfan'),'Great @patsfan ')});
+test('Only whole @handles are detected; plain names do not send tags',()=>{assert.deepEqual(mentionsInPost('Hey @patsfan, @bucsfan!',friends).map(x=>x.id),['f1','f2']);assert.equal(mentionsInPost('Hey patsfan, @patsfanextra',friends).length,0)});
+test('Tagged @handle is rendered as a complete token and can link to its account ID',()=>{let bits=splitTaggedText('Hey @patsfan go!',friends);assert.equal(bits[1].value,'@patsfan');assert.equal(bits[1].person.id,'f1');assert.equal(bits.map(x=>x.value).join(''),'Hey @patsfan go!')});
+test('Multiple occurrences preserve text and recipient IDs',()=>{let t='@patsfan and @bucsfan, look';let parts=splitTaggedText(t,friends);assert.equal(parts.filter(x=>x.type==='mention').length,2);assert.equal(parts.map(x=>x.value).join(''),t)});
+test('Editing away a tag removes it from the desired set',()=>{assert.equal(mentionsInPost('I changed my mind.',friends).length,0)});
+test('Source includes friend tags in both post creation and editing, plus mention notification',()=>{const app=fs.readFileSync(new URL('../src/App.jsx',import.meta.url),'utf8');assert.match(app,/synchronizeFriendTags\(createdPost,newPost\.trim\(\)\)/);assert.match(app,/synchronizeFriendTags\(data\.id,body\)/);assert.match(app,/tagged you in a post/);});

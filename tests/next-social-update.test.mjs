@@ -21,7 +21,9 @@ test('member profile and mobile navigation plus friends button layout',()=>{
  for(const needle of ['openMemberProfile','loadMemberPosts','Load more posts','onProfile={openMemberProfile}'])assert.ok(app.includes(needle),needle);
  assert.ok(css.includes('.person-row>.friend-actions{grid-column:1/-1'));
 });
-test('splash screen audio not added in this update',()=>{
- assert.ok(!app.includes('new Audio('));
- assert.ok(!app.includes('soundOnSplash'));
+test('splash sound is optional, respects mobile autoplay and does not block the app',()=>{
+ assert.ok(app.includes("new Audio('/audio/lockernoise-intro.mp3')"));
+ assert.ok(app.includes('introSoundBlocked'));
+ assert.ok(app.includes('prefers-reduced-motion'));
+ assert.ok(app.includes('lockernoise-intro-sound'));
 });

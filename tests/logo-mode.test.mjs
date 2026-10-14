@@ -3,9 +3,9 @@ import assert from 'node:assert/strict';
 import {readFileSync} from 'node:fs';
 import {TEAMS} from '../src/teams.js';
 test('team directory contains 32 NFL teams and image references',()=>{
- assert.equal(TEAMS.filter(t=>t.league==='NFL').length,32);
- assert.ok(TEAMS.filter(t=>t.league==='CFB').length>50);
- assert.ok(TEAMS.every(t=>t.logo?.startsWith('https://')));
+ assert.equal(TEAMS.filter(t=>t.league==='NFL'&&!t.isGeneral).length,32);
+ assert.ok(TEAMS.filter(t=>t.league==='CFB'&&!t.isGeneral).length>50);
+ assert.ok(TEAMS.filter(t=>!t.isGeneral).every(t=>t.logo?.startsWith('https://')));
  assert.match(TEAMS.find(t=>t.id==='WAS').logo,/wsh\.png$/);
 });
 test('official logo display requires explicit mode',()=>{
