@@ -569,3 +569,10 @@
   .shared-post-preview{padding:11px}
   .youtube-caption{font-size:11px}
 }
+
+/* YouTube links become removable attachments independent from the caption. */
+.attached-youtube{width:100%;min-width:0;margin:12px 0;border:1px solid var(--border,#3b56b8);border-radius:13px;padding:10px;background:var(--surface-2,#152b80)}
+.attached-youtube-head{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:10px;font-size:12px;font-weight:700;color:var(--accent,#d7ff1f)}
+.attached-youtube-head span{display:inline-flex;align-items:center;gap:6px}
+.attached-youtube-head button{display:inline-flex;align-items:center;gap:5px;border:1px solid var(--border,#3b56b8);border-radius:9px;padding:7px 10px;background:var(--surface,#10277e);color:var(--text,#fff);font-size:12px;font-weight:700;cursor:pointer}
+.attached-youtube .youtube-card{margin-bottom:0}
