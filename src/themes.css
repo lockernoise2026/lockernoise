@@ -608,3 +608,25 @@
 /* Next build: organize selectable communities in the posting menu only. */
 .picker-section-label{padding:11px 13px 5px;font-size:11px;text-transform:uppercase;letter-spacing:.08em;font-weight:750;color:var(--muted,#aebee9);background:var(--surface-2,#172c70);position:sticky;top:0;z-index:1}
 .privacy-switch span:has(svg){display:inline-flex;gap:9px;align-items:center}
+
+/* LockerNoise beta support form */
+.ln-support{max-width:700px;margin:auto}
+.ln-support-form>p:first-child{margin-top:0;color:var(--text-muted,var(--muted,#95a5bf))}
+.ln-support-choices{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px;margin:9px 0 21px}
+.ln-support-choice{min-height:71px;display:flex;align-items:center;justify-content:center;gap:9px;border:1px solid var(--line,#42516f);border-radius:12px;background:var(--card,#172441);color:inherit;cursor:pointer;text-align:center;padding:10px;font-weight:650;font-size:13px}
+.ln-support-choice.chosen{border:2px solid #c8f73d;background:color-mix(in srgb,#c8f73d 9%,transparent)}
+.ln-support-choice:hover{border-color:#c8f73d}
+.ln-support-honeypot{position:absolute!important;left:-9999px!important;height:1px!important;clip-path:inset(50%)!important}
+.ln-support-error{color:#ff8e8e!important;margin-top:12px!important}
+.ln-support-success{padding:18px 7px;text-align:center;display:flex;flex-direction:column;align-items:center;gap:10px}
+.ln-support-success>svg{color:#c8f73d}
+.ln-support-success p{overflow-wrap:anywhere}
+.ln-support-history{margin-top:17px;padding-top:15px;border-top:1px solid var(--line,#42516f)}
+.ln-support-history-list{display:grid;gap:10px;margin-top:12px;max-height:230px;overflow:auto}
+.ln-support-history-list>div{border:1px solid var(--line,#42516f);border-radius:10px;padding:12px;overflow-wrap:anywhere}
+.ln-support-history-list small{display:block;opacity:.72;margin-top:4px}
+.ln-support-history-list p{margin:8px 0 0;white-space:pre-wrap}
+.ln-support-direct{margin:20px 0 5px;font-size:13px;opacity:.9;text-align:center}
+.ln-support-direct a{display:inline-flex;align-items:center;gap:3px;color:inherit;text-decoration:underline;overflow-wrap:anywhere}
+.support-login-button{display:flex;align-items:center;justify-content:center;gap:8px;background:transparent;color:inherit;border:1px solid var(--line,#42516f);padding:10px;margin:15px auto 8px;border-radius:10px;cursor:pointer}
+@media(max-width:470px){.ln-support-choices{grid-template-columns:repeat(2,minmax(0,1fr))}.ln-support-choice{flex-direction:column;gap:6px;font-size:11px;min-height:77px}.ln-support-choice svg{width:19px;height:19px}}

@@ -32,13 +32,14 @@ test('feed sorting uses an allowlist and is saved to member profile',()=>{
  assert.match(migration,/ADD COLUMN IF NOT EXISTS feed_sort/);
  assert.match(migration,/CHECK \(feed_sort IN \('hot','new','top'\)\)/);
 });
-test('intro clip stored in public with blocked autoplay tap fallback',()=>{
+test('intro clip starts automatically where browser permits, without tap-to-hear button',()=>{
  assert.ok(statSync(new URL('../public/audio/lockernoise-intro.mp3',import.meta.url)).size>10000);
- assert.ok(app.includes('audio.play().then('));
- assert.ok(splash.includes('onPlaySound'));
- assert.ok(splash.includes('soundBlocked'));
+ assert.ok(app.includes("new Audio('/audio/lockernoise-intro.mp3')"));
+ assert.ok(app.includes('audio.play().catch(()=>{})'));
+ assert.ok(app.includes("document.addEventListener('pointerdown',firstInteraction"));
+ assert.ok(!splash.includes('Tap to play intro sound'));
+ assert.ok(!splash.includes('onPlaySound'));
  assert.ok(app.includes('introSoundEnabled'));
- assert.match(readFileSync(new URL('../src/splash.css',import.meta.url),'utf8'),/ln-launch-audio-toggle/);
 });
 test('scrollbar cleanup is desktop-only and does not disable sidebar scrolling',()=>{
  assert.match(pickerCss,/@media \(min-width: 801px\)/);

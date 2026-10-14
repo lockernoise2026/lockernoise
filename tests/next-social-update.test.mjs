@@ -23,7 +23,9 @@ test('member profile and mobile navigation plus friends button layout',()=>{
 });
 test('splash sound is optional, respects mobile autoplay and does not block the app',()=>{
  assert.ok(app.includes("new Audio('/audio/lockernoise-intro.mp3')"));
- assert.ok(app.includes('introSoundBlocked'));
+ assert.ok(!app.includes('introSoundBlocked'));
+ assert.ok(app.includes('audio.play().catch(()=>{})'));
+ assert.ok(app.includes("document.addEventListener('pointerdown',firstInteraction"));
  assert.ok(app.includes('prefers-reduced-motion'));
  assert.ok(app.includes('lockernoise-intro-sound'));
 });

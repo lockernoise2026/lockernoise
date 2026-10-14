@@ -4,7 +4,7 @@ import React from 'react';
 // Native Android shows the matching static launch asset until the WebView mounts.
 const BURSTS=Array.from({length:16},(_,i)=>({angle:i*22.5,dist:120+(i%4)*23,delay:(i%3)*42}));
 
-export default function LaunchSplash({waitingForAuth=false,soundBlocked=false,onPlaySound}){
+export default function LaunchSplash({waitingForAuth=false}){
  return <main className="ln-launch" role="status" aria-live="polite" aria-label="LockerNoise is starting">
   <div className="ln-launch-halo" aria-hidden="true"/>
   <div className="ln-launch-center">
@@ -21,7 +21,6 @@ export default function LaunchSplash({waitingForAuth=false,soundBlocked=false,on
    <p className="ln-launch-tagline">THE HOME OF FOOTBALL FANS</p>
    <div className="ln-launch-loading"><span className="ln-launch-loading-line"/></div>
    {waitingForAuth&&<p className="ln-launch-wait">Connecting to your huddle…</p>}
-   {soundBlocked&&onPlaySound&&<button type="button" className="ln-launch-audio-toggle" onClick={onPlaySound} aria-label="Tap to play LockerNoise intro sound">🔊 Tap to play intro sound</button>}
   </div>
   <span className="ln-launch-accessible">Loading LockerNoise. Checking your sign-in securely.</span>
  </main>
